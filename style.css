@@ -20,10 +20,7 @@
 .cards {
     display: flex;
     padding: 0px 116px;
-    justify-content: center;
-    
-    
-    
+    justify-content: center;           
 }
 
 .card1 {        
