@@ -1,8 +1,9 @@
-.conteudo-pagina {
-    width: 1110px;
-    height: 629px;
-    background-color: #EEF9BF;
-    align-items: center;  
+* {
+    box-sizing: border-box;
+}
+
+body {    
+    background-color: #EEF9BF;   
 }
 
 .titulo {
@@ -13,57 +14,36 @@
     letter-spacing: -0.004em;    
     color: #75B79E;
     text-align: center;  
-    padding-top: 40px;
-    padding-bottom: 47px;    
+    margin: 40px auto;    
 }
 
-.cards {
+.conteiner-carta {
     display: flex;
-    padding: 0px 116px;
-    justify-content: center;           
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 17px 100px;         
 }
 
-.card1 {        
-    height: 146px;
+.carta {
+    position: relative;
     width: 117px;
-    left: 122px;
-    top: 150px;
-    border-radius: 5px;
+    height: 146px;
+    margin: 17px;
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
-    margin: auto;  
+    border-radius: 5px;
 }
 
-.cards img {
-    display: block;
-    height: 100px;
+.carta-frente img {    
     width: 100px;
-    left: 132px;
-    top: 178px;
-    border-radius: 0px;
-    margin-top: 20%;
-    margin-left: 10%;    
+    height: 100px;
+    margin-top: 18px;        
 }
 
-@media (max-width: 375px){
-
-    .conteudo-pagina {
-        width: 100%;
-        height: 100%;
-    }
-
-    .titulo {
-        font-size: 36px;
-        line-height: 42.19px;        
-    }
-
-    .card1 {
-        margin-bottom: 36px;
-    }
-
-    .cards {      
-    flex-direction: column;
-    }
+.carta-frente {
+  justify-content: center;
+  align-items: center;
+  display: flex; 
 }
 
 /* Imports */

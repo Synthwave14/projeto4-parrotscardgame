@@ -1,11 +1,53 @@
 let numeroPar = null;
 
+const gifs = ['bobrossparrot','explodyparrot','fiestaparrot','metalparrot','revertitparrot','tripletsparrot','unicornparrot'];
+
+let elemento = document.querySelector(".conteiner-carta");
+
 function ehPar(){
-    while (numeroPar > 14 || numeroPar < 4 || numeroPar % 2 !== 0) 
+    while (numeroPar >14  || numeroPar < 4 || numeroPar % 2 !== 0) 
     {numeroPar = prompt("Quantas cartas? (Apenas pares de 4 a 14)");}
+    iniciaJogo();
 }
 
 ehPar();
+
+function iniciaJogo(){
+  let baralho = [];
+  for (let i = 0; i < numeroPar; i+=2) {
+    baralho.push(`
+        <div class="carta" onclick="virada(this)">
+          <div class="carta-frente">
+            <img src="img/front.png"/>
+          </div>
+          <div class="carta-verso">
+            <img scr="gifs/${gifs[i / 2]}.gif"/>
+          </div>
+        </div>
+    `)
+    baralho.push(`
+        <div class="carta" onclick="virada(this)">
+          <div class="carta-frente">
+            <img src="img/front.png"/>
+          </div>
+          <div class="carta-verso">
+            <img scr="gifs/${gifs[i / 2]}.gif"/>
+          </div>
+        </div>
+    `)
+  }
+  baralho.sort(comparador);
+  for (let j = 0; j < numeroPar; j++) {
+    elemento.innerHTML += baralho[j];      
+  }
+}
+
+function comparador() {
+    return Math.random() - 0.5;
+  }
+
+
+
 
 
 // (Escolha um número par entre 4 a 14 cartas)
