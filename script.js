@@ -15,26 +15,23 @@ ehPar();
 function iniciaJogo(){
   let baralho = [];
   for (let i = 0; i < numeroPar; i+=2) {
-    baralho.push(`
-        <div class="carta" onclick="virada(this)">
+    baralho.push(`<div class="carta" onclick="viraCartas(this)">
           <div class="carta-frente">
             <img src="img/front.png"/>
           </div>
           <div class="carta-verso">
-            <img scr="gifs/${gifs[i / 2]}.gif"/>
+            <img src="gifs/${gifs[i / 2]}.gif"/>
           </div>
-        </div>
-    `)
-    baralho.push(`
-        <div class="carta" onclick="virada(this)">
+        </div>`)
+    baralho.push(
+      `<div class="carta" onclick="viraCartas(this)">
           <div class="carta-frente">
             <img src="img/front.png"/>
           </div>
           <div class="carta-verso">
-            <img scr="gifs/${gifs[i / 2]}.gif"/>
+            <img src="gifs/${gifs[i / 2]}.gif"/>
           </div>
-        </div>
-    `)
+        </div>`)
   }
   baralho.sort(comparador);
   for (let j = 0; j < numeroPar; j++) {
@@ -46,8 +43,9 @@ function comparador() {
     return Math.random() - 0.5;
   }
 
-
-
+function viraCartas(cartaVirada) {
+  cartaVirada.classList.add("virada");
+}
 
 
 // (Escolha um número par entre 4 a 14 cartas)
