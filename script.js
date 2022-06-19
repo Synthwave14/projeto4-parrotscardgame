@@ -10,12 +10,12 @@ const gifs = ['bobrossparrot','explodyparrot','fiestaparrot','metalparrot','reve
 function baralhoPar(){
   while (numeroPar >14  || numeroPar < 4 || numeroPar % 2 !== 0) 
   {numeroPar = prompt("Quantas cartas? (Apenas pares de 4 a 14)");}
-  oJogo();
+  inicioJogo();
 }
 
 baralhoPar();
 
-function oJogo(){
+function inicioJogo(){
   let baralho = [];
   for (let i = 0; i < numeroPar/2; i++) {
   const carta = criarCarta(i);
@@ -60,20 +60,18 @@ function oJogo(){
       setTimeout(desviraCarta, 1000);
     }
   }
-
-  function fimJogo() {
-  let parCombina = document.querySelectorAll(".combina");
-  if( Number(parCombina.length) === Number(numeroPar)){
-    alert(`Você ganhou em ${numeroTentativas} jogadas!`)
-  }  
-  }
-
+ 
   function desviraCarta(){
     primeiraCarta.classList.remove("virada");
     segundaCarta.classList.remove("virada");
     primeiraCarta = null;
     segundaCarta = null;
   }
-  
 }
+
+function fimJogo() {
+  let parCombina = document.querySelectorAll(".combina");
+  if( Number(parCombina.length) === Number(numeroPar))
+  {alert(`Você ganhou em ${numeroTentativas} jogadas!`)}  
+  }
 
